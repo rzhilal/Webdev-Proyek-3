@@ -3,16 +3,14 @@ const Transaksi = db.transaksi;
 // Create and Save a transaksi
 exports.create = (req, res) => {
     // Validate request
-    if (!req.body.nama_produk) {
+    if (!req.body) {
       res.status(400).send({ message: "Content can not be empty!" });
       return;
     }
     // Creattransaksi
     const _transaksi = Transaksi({
-        nama_produk: req.body.nama_produk,
-        status_pembayaran : req.body.status_pembayaran,
-        tipe_penjualan: req.body.tipe_penjualan,
-        harga: req.body.harga
+        nama_pengeluaran: req.body.nama_pengeluaran,
+        total_pengeluaran : req.body.total_pengeluaran
     });
     // Stransaksi in the database
     _transaksi
