@@ -5,7 +5,7 @@ module.exports = mongoose => {
     mongoose.Schema(
       {
         nama_pengeluaran: String,
-        total_pengeluaran : String,
+        total_pengeluaran : Number,
         tanggal: { type: Date, default: Date.now },
       },
     )
