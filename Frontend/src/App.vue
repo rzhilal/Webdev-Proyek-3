@@ -1,45 +1,53 @@
-<template lang="html">
-  <div classs="">
+<template>
+  <div class="">
 
-    <h4> List Users </h4>
-
+    <h4> Test Data </h4>
+  
     <ul v-for="user in users" :key="user.id">
+      <li>{{user.id}}</li>
       <li>{{user.name}}</li>
     </ul>
-
   </div>
 
 </template>
 
 <script>
   import axios from 'axios'
-import { resolveComponents } from 'uri-js'
+// import { resolveComponents } from 'uri-js'
 
   export default {
   name: 'App',
   Components: {
-    HelloWorld
+    //HelloWorld
   },  
     data(){
       return{
-        users: []
-      }
+        form:{
+           id:"",
+           name:""
+        },
+        users: [],
+      };
     },
     methods:{
-      load(){
+      getLoad(){
         axios.get('http://localhost:3000/users')
         .then((res)=>{
           this.users = res.data
+          alert('Jalan');
+         
         })
-        .catch(()=> {
-          alert('error load data')
+        .catch((err)=> {
+          alert('error load data');
+          console.log(err);
         })
-      }
     },
-    mounted(){
-      this.load()
+    
+  },
+  mounted(){
+      this.getLoad()
     }
-  }
+} 
 </script>
 
 <style>
@@ -47,7 +55,7 @@ import { resolveComponents } from 'uri-js'
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-align: center;
+    text-align: left;
     color: #2c3e50;
     margin-top: 60px;
   }

@@ -47,7 +47,7 @@ app.get("/", (req, res) => {
 require("./app/routes/transaksi.routes")(app);
 
 // set port, listen for requests
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8888;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });

@@ -1,3 +1,3 @@
 module.exports = {
-  url: "mongodb://localhost:27017/aplikasi_transaksi"
+  url: "mongodb://0.0.0.0:27017/aplikasi_transaksi"
   };
